@@ -27,7 +27,7 @@ script: |
 
   #IVY
   sudo apt-get install ivy
-  ant update -lib /opt/local/share/java/ivy.jar 
+  sudo ln -s -T /usr/share/java/ivy.jar /usr/share/ant/lib/ivy.jar
 
   #glassfish
   sudo apt-get install zip unzip
