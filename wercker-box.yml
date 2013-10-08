@@ -1,14 +1,18 @@
 name : ubuntu12.04-java6-ivy-glassfish
-version : 0.0.2
+version : 0.0.3
 type : main
 platform : ubuntu@12.04
 packages:
   - firefox
 keywords:
-  - java6
+  - java@6
   - ant
   - glassfish@3.1.2.2
   - ivy
+description:
+  We build on JavaEE 6 and with Glassfish. I figured other people might need the same build. I can add maven, but right now it's ant only.
+  
+  For testing we use pip. Cucumber and Selenium are pretty easy to add, but you'll need to extend this box to get them.
 script: |
   sudo apt-get update
   sudo apt-get install python-software-properties curl wget -y
