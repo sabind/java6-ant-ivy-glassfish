@@ -1,2 +1,2 @@
-java7-ant-ivy-glassfish
+java6-ant-ivy-glassfish
 =======================
