@@ -1,0 +1,39 @@
+name : ubuntu12.04-java7-ant
+version : 0.0.1
+type : main
+platform : ubuntu@12.04
+packages:
+  - firefox
+keywords:
+  - java7
+  - ant
+  - glassfish@3.1.2.2
+  - ivy
+script: |
+  echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list
+  echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main" | tee -a /etc/apt/sources.list
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv C7917B12
+  echo debconf shared/accepted-oracle-license-v1-1 select true | \ sudo debconf-set-selections
+  echo debconf shared/accepted-oracle-license-v1-1 seen true | \ sudo debconf-set-selections
+  sudo apt-get update
+  sudo apt-get install oracle-java7-installer 
+
+  # PYTHON
+  sudo apt-get install python-setuptools
+  sudo easy_install pip
+
+  #ant
+  sudo apt-get -u install ant
+
+  #IVY
+  sudo apt-get install ivy
+  ant update -lib /opt/local/share/java/ivy.jar 
+
+  #glassfish
+  sudo apt-get install zip unzip
+  cd /opt
+  wget http://download.java.net/glassfish/3.1.2.2/release/glassfish-3.1.2.2.zip
+  unzip glassfish-3.1.2.2.zip
+
+   # We should have ant and ivy available
+  type ant || { echo "I expected ant to be available. Aborting."; exit 1; }
