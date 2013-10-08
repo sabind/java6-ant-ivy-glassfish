@@ -32,8 +32,8 @@ script: |
   #glassfish
   sudo apt-get install zip unzip
   cd /opt
-  wget http://download.java.net/glassfish/3.1.2.2/release/glassfish-3.1.2.2.zip
-  unzip glassfish-3.1.2.2.zip
+  sudo wget http://download.java.net/glassfish/3.1.2.2/release/glassfish-3.1.2.2.zip
+  sudo unzip glassfish-3.1.2.2.zip
 
    # We should have ant and ivy available
   type ant || { echo "I expected ant to be available. Aborting."; exit 1; }
